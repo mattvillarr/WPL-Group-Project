@@ -1,0 +1,49 @@
+<div class="bg"></div>
+<div class="wrapper">
+
+  <div class="navbar">
+    <div class="user">
+      <a routerLink="/user_home" routerLinkActive="active">
+        <img src="../../../assets/img/user.svg">
+      </a>
+    </div>
+    <div class="cart">
+      <a routerLink="/cart" routerLinkActive="active">
+        <img src="../../../assets/img/shopping_cart.svg">
+      </a>
+    </div>
+  </div>
+
+  <div class="body-content">
+
+    <form class="search-form" #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+      <input type="text" class="form-control" id="search" placeholder=" Search" required [(ngModel)]="model.name"
+        name="search-name">
+      <button type="submit" style="visibility: hidden">hidden submit</button>
+    </form>
+
+    <div class="item-picture">
+      <img>
+    </div>
+
+    <div class="item-desc">
+      <div class="desc">
+        <h2>Item Title</h2>
+        <h2>$xx.xx</h2>
+        <p>Item description asdfjads alksjfdh adf halksjdfa hasdfkl alsdjfk alkf </p>
+        <form class="add-to-cart" action="">
+          <select class="quantity">
+            <option class="qty-default" selected>Qty:</option>
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+          </select>
+          <button type="submit" class="submit-btn">Add To Cart</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+</div>
