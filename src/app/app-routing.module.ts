@@ -7,6 +7,7 @@ import { UserLandingPageComponent } from './user/user-landing-page/user-landing-
 import { SearchPageComponent } from './user/search-page/search-page.component';
 import { ShoppingCartComponent } from './user/shopping-cart/shopping-cart.component';
 import { CheckoutPageComponent } from './user/checkout-page/checkout-page.component';
+import { ItemPageComponent } from './user/search-page/item-page/item-page.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'search', component: SearchPageComponent },
   { path: 'cart', component: ShoppingCartComponent },
   { path: 'checkout', component: CheckoutPageComponent },
+  { path: 'item', component: ItemPageComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full'}
 ];
 

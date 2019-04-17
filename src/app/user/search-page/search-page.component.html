@@ -1,3 +1,42 @@
-<p>
-  search-page works!
-</p>
+<div class="bg"></div>
+<div class="wrapper">
+  <div class="navbar">
+    <div class="title">
+      <p>Website name</p>
+    </div>
+    <div class="user">
+      <a routerLink="/user_home" routerLinkActive="active">
+        <img src="../../../assets/img/user.svg">
+      </a>
+    </div>
+    <div class="cart">
+      <a routerLink="/cart" routerLinkActive="active">
+        <img src="../../../assets/img/shopping_cart.svg">
+      </a>
+    </div>
+  </div>
+  <div class="sidebar">
+    <p>search criteria</p>
+  </div>
+
+  <div class="body-content">
+    <form class="search-form" #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+      <input type="text" class="form-control" id="search" placeholder=" Search" required [(ngModel)]="model.name" name="search-name">
+      <button type="submit" style="visibility: hidden">hidden submit</button>
+    </form>
+
+    <div class="item-results">
+      <div class="item">item1</div>
+      <div class="item">item2</div>
+      <div class="item">item3</div>
+      <div class="item">item4</div>
+      <div class="item">item5</div>
+      <div class="item">item6</div>
+      <div class="item">item7</div>
+      <div class="item">item8</div>
+
+      
+    </div>
+  </div>
+
+</div>

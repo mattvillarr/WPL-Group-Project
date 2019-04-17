@@ -1,0 +1,103 @@
+.bg {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background: #CDEDEF;
+    clip-path: polygon(0 0, 78% 0, 100% 53%, 100% 100%, 0 100%);
+    z-index: -1;
+}
+
+.wrapper {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 12vh auto;
+    grid-template-columns: 10% auto;
+    grid-row-gap: 5vh;
+
+    .navbar {
+        grid-row: 1 / span 1;
+        grid-column: 1 / span 2;
+
+        display: grid;
+        grid-template-columns: 80% 10% 10%;
+
+        .user {
+            grid-column: 2 / span 1;
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+        .cart {
+            grid-column: 3 / span 1;
+            margin-top: 5px;
+        }
+    }
+
+    .body-content {
+        grid-row: 2 / span 1;
+        grid-column: 2 / span 1;
+        margin-right: 5%;
+        margin-bottom: 5%;
+        margin-left: 10%;
+
+        display: grid;
+        grid-template-rows: 12vh auto;
+        grid-template-columns: repeat(2, 1fr);
+
+        .search-form {
+            grid-row: 1 / span 1;
+            grid-column: 2 / span 1;
+            justify-self: end;
+        }
+
+        .item-picture {
+            grid-row: 2 / span 1;
+            grid-column: 1 / span 1;
+            margin: 0% 20% 0% 10%;
+            border: 1px solid #E893B6;
+            background: white;
+        }
+        .item-desc {
+            grid-row: 2 / span 1;
+            grid-column: 2 / span 1;
+            margin: 0% 35% 5vh 10%;
+            border: 1px solid #E893B6;
+            background: white;
+        }
+        .desc{
+            margin-left: 10%;
+        }
+        .add-to-cart {
+            margin-top: 25%;
+        }
+    }
+}
+
+#search {
+    width: 60%;
+    height: 4vh;
+    border: 1px solid #E893B6;
+    border-radius: 10px;
+    font-size: 12pt;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.quantity {
+    width: 90%;
+    border: 1px solid #E893B6;
+    font-size: 12pt;
+
+    .qty-default {
+        display: none;
+    }
+    
+}
+.submit-btn {
+    margin-top: 10%;
+    background-color: #CDEDEF;
+    width: 90%;
+    height: 5vh;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+}
