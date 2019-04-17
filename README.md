@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-Also, run `npm run start:server` to start a dev server for an express instance. Nodemon is required to run this command so install it using `npm install --save-dev nodemon run`. Nodemon will automatically reload the server if you change any of the source files. Navigate to`http://localhost:4000/` to see the server running. 
+Also, run `npm run start:server` to start a dev server for an express instance. Nodemon is required to run this command so install it using `npm install --save-dev nodemon`. Nodemon will automatically reload the server if you change any of the source files. Navigate to`http://localhost:4000/` to see the server running. 
 
 ## Code scaffolding
 
