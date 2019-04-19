@@ -11,6 +11,10 @@ let ProductSchema = new Schema({
     rating : {type : Number}
 });
 
-
+ProductSchema.index({
+    name : 'text',
+    category : 'text',
+    description : 'text'
+});
 // Export the model
 module.exports = mongoose.model('Product', ProductSchema);

@@ -115,3 +115,20 @@ exports.product_find = function (req, res, next){
         });
     })
 };
+
+exports.product_search = function (req, res, next){
+    Product.find({
+        $text : {
+            $search : req.body.query
+        }
+    }).select('_id name price category image description rating').exec().then(docs => {
+        console.log(docs);
+        res.status(200).json(docs);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json({
+            error: err
+        });
+    })
+};
