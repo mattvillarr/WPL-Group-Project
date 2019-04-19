@@ -1,6 +1,42 @@
 /* This is the Express file aka the E in MEAN*/
 const express = require('express');
+const bodyParser = require('body-parser');
+
+const product = require('./routes/product.route'); 
+const order = require('./routes/order.route');
+const user = require('./routes/user.route');
 const app = express();
+
+let port = 2345;
+
+app.listen(port, () => {
+    console.log('Server is up and running on port number ' + port);
+});
+
+const mongoose = require('mongoose');
+const server = '127.0.0.1:27017'; // REPLACE WITH YOUR DB SERVER
+const database = 'test';      // REPLACE WITH YOUR DB NAME
+class Database {
+    constructor() {
+        this._connect()
+    }
+    _connect() {
+        mongoose.connect(`mongodb://${server}/${database}`)
+            .then(() => {
+                console.log('Database connection successful')
+            })
+            .catch(err => {
+                console.error('Database connection error')
+            })
+    }
+}
+module.exports = new Database()
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+app.use('/products', product);
+app.use('/orders', order);
+app.use('/users', user);
 
 /* Allows access to API*/
 app.use((req, res, next) =>{
