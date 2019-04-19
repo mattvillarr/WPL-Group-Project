@@ -12,7 +12,11 @@ exports.product_create = function (req, res, next) {
         {
             _id : new mongoose.Types.ObjectId(),
             name: req.body.name,
-            price: req.body.price
+            price: req.body.price,
+            category : req.body.category,
+            image : req.body.image,
+            description : req.body.description,
+            rating : req.body.rating
         }
     );
 
@@ -23,6 +27,10 @@ exports.product_create = function (req, res, next) {
         createdProduct: {
             name : result.name,
             price : result.price,
+            category : result.category,
+            image : result.image,
+            description : result.description,
+            rating : result.rating,
             _id : result._id,
             request :{
                 type : 'GET',
@@ -96,7 +104,7 @@ exports.product_delete = function (req, res, next) {
 };
 
 exports.product_find = function (req, res, next){
-    Product.find().select('name price _id').exec().then(docs => {
+    Product.find().select('_id name price category image description rating').exec().then(docs => {
         console.log(docs);
         res.status(200).json(docs);
     })
