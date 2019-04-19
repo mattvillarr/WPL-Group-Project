@@ -12,6 +12,7 @@ exports.order_create = function (req, res, next){
         const order = new Order ({
             _id : mongoose.Types.ObjectId(),
             quantity : req.body.quantity,
+            user : req.body.userId,
             product: req.body.productId
         });
         return order.save()      
@@ -22,6 +23,7 @@ exports.order_create = function (req, res, next){
             message: 'Order Stored',
             createdOrder:{
                 _id : result._id,
+                user : result.user,
                 product: result.product,
                 quantity : result.quantity
             },
@@ -46,6 +48,7 @@ exports.order_find = function (req, res, next){
             orders: docs.map(doc => {
                 return {
                     _id : doc._id,
+                    user : doc.user,
                     product: doc.product,
                     quantity : doc.quantity,
                     request: {
