@@ -5,7 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { AdminLandingPageComponent } from './admin/admin-landing-page/admin-landing-page.component';
 import { UserLandingPageComponent } from './user/user-landing-page/user-landing-page.component';
 import { SearchPageComponent } from './user/search-page/search-page.component';
-import { ShoppingCartComponent } from './user/shopping-cart/shopping-cart.component';
+import { SelectedItemComponent } from './user/selected-item/selected-item.component';
 import { CheckoutPageComponent } from './user/checkout-page/checkout-page.component';
 import { ItemPageComponent } from './user/search-page/item-page/item-page.component';
 
@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'admin_home', component: AdminLandingPageComponent },
   { path: 'user_home', component: UserLandingPageComponent },
   { path: 'search', component: SearchPageComponent },
-  { path: 'cart', component: ShoppingCartComponent },
+  { path: 'cart', component: SelectedItemComponent },
   { path: 'checkout', component: CheckoutPageComponent },
   { path: 'item', component: ItemPageComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full'}

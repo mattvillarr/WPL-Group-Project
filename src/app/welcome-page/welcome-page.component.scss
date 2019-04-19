@@ -1,0 +1,47 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: 65% 35%;
+    height: 100%;
+}
+
+.title-website {
+    grid-column: 1 ;
+    grid-row: 2 / 6;
+    text-align: center;
+    font-family: Muli;
+    font-size: 12vw;
+    color: #575757;
+}
+
+.login {
+    grid-column: 2;
+    grid-row: 3;
+    width: 50%;
+    height: 100%;
+    margin-right: -20%;
+    margin-left: 5%;
+    font-size: 3vw;
+    background: #7F4860;
+}
+
+.dummy-g {
+    grid-column: 2;
+    grid-row: 4;
+}
+
+.sign-up {
+    grid-column: 2;
+    grid-row: 5;
+    width: 50%;
+    height: 100%;
+    margin-right: -20%;
+    margin-left: 5%;
+    font-size: 3vw;
+    background: #7F4860;
+}
+
+.dummy-i {
+    grid-column: 2;
+    grid-row: 6;
+}
+
