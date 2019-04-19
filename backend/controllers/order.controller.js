@@ -73,7 +73,7 @@ exports.order_details = function (req, res, next) {
         res.status(200).json({
             order:order,
             request : {
-                type: 'GET',
+                type: 'POST',
                 url : "http://localhost:2345/orders/find"
             }
         });
