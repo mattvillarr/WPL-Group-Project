@@ -12,6 +12,7 @@ import { UserLandingPageComponent } from './user/user-landing-page/user-landing-
 import { SearchPageComponent } from './user/search-page/search-page.component';
 import { CheckoutPageComponent } from './user/checkout-page/checkout-page.component';
 import { ItemPageComponent } from './user/search-page/item-page/item-page.component';
+import { RegisterComponent } from './login/register/register.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ItemPageComponent } from './user/search-page/item-page/item-page.compon
     UserLandingPageComponent,
     SearchPageComponent,
     CheckoutPageComponent,
-    ItemPageComponent
+    ItemPageComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

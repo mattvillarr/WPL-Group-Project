@@ -7,11 +7,13 @@ import { UserLandingPageComponent } from './user/user-landing-page/user-landing-
 import { SearchPageComponent } from './user/search-page/search-page.component';
 import { CheckoutPageComponent } from './user/checkout-page/checkout-page.component';
 import { ItemPageComponent } from './user/search-page/item-page/item-page.component';
+import { RegisterComponent } from './login/register/register.component';
 
 
 const routes: Routes = [
   { path: 'home', component: WelcomePageComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'admin_home', component: AdminLandingPageComponent },
   { path: 'user_home', component: UserLandingPageComponent },
   { path: 'search', component: SearchPageComponent },
