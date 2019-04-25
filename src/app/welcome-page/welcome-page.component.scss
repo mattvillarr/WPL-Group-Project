@@ -11,35 +11,51 @@
     width: 100%;
     height: 100vh;
     display: grid;
-    grid-template-rows: 60% 20% 20%;
-    grid-template-columns: 65% 35%;
+    grid-template-rows: 20% auto 30%;
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .title-website {
-    grid-column: 1 / span 1 ;
     grid-row: 2 / span 1;
+    grid-column: 1 / span 1 ;
+    margin-top: 10vh;
+    padding-left: 20%;
     text-align: center;
     font-size: 2em;
+    text-align: center;
 }
 
-.login {
-    grid-column: 2;
-    grid-row: 3;
-    width: 50%;
-    height: 100%;
-    margin-right: -20%;
-    margin-left: 5%;
-    font-size: 3vw;
-    background: #7F4860;
+.desc {
+    grid-row: 2 / span 1;
+    grid-column: 3 / span 1;
+    margin-top: 5vh;
+    padding-right: 10%;
 }
 
-.sign-up {
-    grid-column: 2;
-    grid-row: 5;
-    width: 50%;
-    height: 100%;
-    margin-right: -20%;
-    margin-left: 5%;
-    font-size: 3vw;
-    background: #7F4860;
+.btn-container {
+    grid-row: 3 / span 1;
+    grid-column: 2 / span 1;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    padding-bottom: 10vh;
+    margin-left: 30%;
 }
+
+button {
+    background-color: #E893B6;
+    color: white;
+    font-size: 1em;
+    width: 80%;
+    height: 8vh;
+    margin-bottom: 0vh;
+    border: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    text-decoration: none;
+    transition-duration: 0.4s;
+}
+button:hover {
+    background-color: white;
+    border: 2px solid #E893B6;
+    color: black;
+  }

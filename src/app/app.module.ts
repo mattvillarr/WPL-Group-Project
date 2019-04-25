@@ -13,6 +13,8 @@ import { SearchPageComponent } from './user/search-page/search-page.component';
 import { CheckoutPageComponent } from './user/checkout-page/checkout-page.component';
 import { ItemPageComponent } from './user/search-page/item-page/item-page.component';
 import { RegisterComponent } from './login/register/register.component';
+import { HeaderComponent } from './header/header.component';
+import { ShoppingCartComponent } from './user/shopping-cart/shopping-cart.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { RegisterComponent } from './login/register/register.component';
     SearchPageComponent,
     CheckoutPageComponent,
     ItemPageComponent,
-    RegisterComponent
+    RegisterComponent,
+    HeaderComponent,
+    ShoppingCartComponent
   ],
   imports: [
     BrowserModule,

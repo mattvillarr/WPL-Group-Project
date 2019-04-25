@@ -8,6 +8,7 @@ import { SearchPageComponent } from './user/search-page/search-page.component';
 import { CheckoutPageComponent } from './user/checkout-page/checkout-page.component';
 import { ItemPageComponent } from './user/search-page/item-page/item-page.component';
 import { RegisterComponent } from './login/register/register.component';
+import { ShoppingCartComponent } from './user/shopping-cart/shopping-cart.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'search', component: SearchPageComponent },
   { path: 'checkout', component: CheckoutPageComponent },
   { path: 'item', component: ItemPageComponent },
+  { path: 'cart', component: ShoppingCartComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full'}
 ];
 
