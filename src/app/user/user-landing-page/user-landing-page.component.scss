@@ -1,0 +1,43 @@
+.container{
+    border-style: solid;
+    border-width: 5px;
+    border-color: #7F4860;
+    border-radius: 5px;
+    width: 30%;
+    margin-top: 10%;  
+    margin-left: 35%;
+    text-align: center;
+    font-size: 150%;
+    color: #7F4860;
+}
+
+.username{
+    padding: 5%;
+}
+
+input{
+    height: 25px;
+    border-style: ridge;
+    border-color: #7F4860;
+    border-radius: 5px;
+    display: inline-block;
+    vertical-align: baseline;
+    width: 40%;
+    margin-top: 2%;
+}
+
+button{
+    margin-top: 5%;
+    background-color: #7F4860;
+    color: black;
+    font-size: 100%;
+}
+
+label {
+    display: inline-block;
+    vertical-align: baseline;
+    width: 40%;
+    margin-top: 2%;
+    margin-right: -5%;
+    height: 25px;
+}
