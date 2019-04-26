@@ -9,6 +9,7 @@ import { CheckoutPageComponent } from './user/checkout-page/checkout-page.compon
 import { ItemPageComponent } from './user/search-page/item-page/item-page.component';
 import { RegisterComponent } from './login/register/register.component';
 import { ShoppingCartComponent } from './user/shopping-cart/shopping-cart.component';
+import { ProfilePageComponent } from './user/profile-page/profile-page.component';
 
 
 const routes: Routes = [
@@ -16,7 +17,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'admin_home', component: AdminLandingPageComponent },
-  { path: 'user_home', component: UserLandingPageComponent },
+  { path: 'profile', component: ProfilePageComponent },
   { path: 'search', component: SearchPageComponent },
   { path: 'checkout', component: CheckoutPageComponent },
   { path: 'item', component: ItemPageComponent },

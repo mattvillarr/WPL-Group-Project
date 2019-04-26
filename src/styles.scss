@@ -7,3 +7,19 @@ HTML, body {
     border: 0px;
     font-family: 'Muli', sans-serif;
 }
+
+a , button {
+    cursor: pointer
+}
+
+a {
+    text-decoration: none;
+    color: #E893B6;
+    transition-duration: 0.4s;
+}
+a:hover {
+    text-decoration: underline; 
+}
+a:visited {
+    color: #E893B6
+}

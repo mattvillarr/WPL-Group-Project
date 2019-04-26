@@ -15,6 +15,7 @@ import { ItemPageComponent } from './user/search-page/item-page/item-page.compon
 import { RegisterComponent } from './login/register/register.component';
 import { HeaderComponent } from './header/header.component';
 import { ShoppingCartComponent } from './user/shopping-cart/shopping-cart.component';
+import { ProfilePageComponent } from './user/profile-page/profile-page.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ShoppingCartComponent } from './user/shopping-cart/shopping-cart.compon
     ItemPageComponent,
     RegisterComponent,
     HeaderComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    ProfilePageComponent
   ],
   imports: [
     BrowserModule,

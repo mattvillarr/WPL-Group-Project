@@ -5,9 +5,8 @@
 
   <div class="body-content">
 
-    <form class="search-form" #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
-      <input type="text" class="form-control" id="search" placeholder=" Search" required [(ngModel)]="model.name"
-        name="search-name">
+    <form class="search-form" novalidate>
+      <input type="text" name="search-name" class="form-control" id="search" placeholder=" Search" required>
       <button type="submit" style="visibility: hidden">hidden submit</button>
     </form>
 
