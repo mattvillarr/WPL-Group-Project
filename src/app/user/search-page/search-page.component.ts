@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: 'app-search-page',
@@ -7,20 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchPageComponent implements OnInit {
 
-  items = [
-    {id: 0, name:'Superman'},
-    {id: 1, name:'Batman'},
-    {id: 3, name:'BatGirl'},
-    {id: 4, name:'Robin'},
-    {id: 5, name:'Flash'},
-  ];
+  constructor(private http: HttpClient) { }
 
-  constructor() { 
-  }
-
+  items = [];
 
   ngOnInit() {
-  
+    this.http.post("http://localhost:2345/products/search", " ")
+    .subscribe(response => {
+      console.log("Initialized search");
+      console.log(response);
+    });
+  }
+
+  onSearch(form: NgForm) {
+    if(form.invalid) {
+      return;
+    }
+    this.http.post("http://localhost:2345/products/search", form.value.search)
+    .subscribe(response => {
+      console.log("Results for " + form.value.search);
+    });
+    form.resetForm();
   }
 
 }
