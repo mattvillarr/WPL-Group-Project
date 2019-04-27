@@ -87,4 +87,12 @@
   .register {
     grid-row: 5 / span 1;
   }
+
+  .invalid-feedback {
+    border: 2px solid red;
+    display: inline-block;
+    float: right;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
   
