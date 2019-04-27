@@ -1,42 +1,43 @@
 <div class="wrapper">
 
-    <app-header class="navbar"></app-header>
-  
-    <form class="info-and-review" action="">
-  
-      <div class="info-container">
-        <h3 class="contact">Contact Info</h3>
-        <input type="email" class="email" name="em"  placeholder="Email" required>
-        <h3 class="shipping">Shipping Info</h3>
-        <input type="text" class="fname" name="fname" placeholder="First Name" required>
-        <input type="text" class="lname" name="lname" placeholder="Last Name" required>
-        <input type="text" class="address" name="address" placeholder="Address" required>
-        <input type="text" class="address2" name="address2" placeholder="Apartment, suite, etc (optional)">
-        <input type="text" class="city" name="city" placeholder="City" required>
-        <input type="text" class="state" name="state" placeholder="State" required>
-        <input type="text" class="zip" name="zip" placeholder="ZIP Code" required>
-        <input type="tel" class="phone" name="phone" placeholder="Phone" required>
+  <app-header class="navbar"></app-header>
+
+  <form class="info-and-review" (submit)="onCheckout(checkoutForm)" #checkoutForm="ngForm">
+
+    <div class="info-container">
+      <h3 class="contact">Contact Info</h3>
+      <input type="email" class="email" name="em" placeholder="Email" ngModel required #email="ngModel">
+      <h3 class="shipping">Shipping Info</h3>
+      <input type="text" class="fname" name="fname" placeholder="First Name" ngModel required #fname="ngModel">
+      <input type="text" class="lname" name="lname" placeholder="Last Name" ngModel required #lname="ngModel">
+      <input type="text" class="address" name="address" placeholder="Address" ngModel required #address="ngModel">
+      <input type="text" class="address2" name="address2" placeholder="Apartment, suite, etc (optional)" ngModel
+        #address2="ngModel">
+      <input type="text" class="city" name="city" placeholder="City" ngModel required #city="ngModel">
+      <input type="text" class="state" name="state" placeholder="State" ngModel required #state="ngModel">
+      <input type="text" class="zip" name="zip" placeholder="ZIP Code" ngModel required #zip="ngModel">
+      <input type="tel" class="phone" name="phone" placeholder="Phone" ngModel required #tel="ngModel">
+    </div>
+
+    <div class="summary">
+
+      <div class="item">
+
       </div>
-  
-      <div class="summary">
-  
-        <div class="item">
-  
-        </div>
-        <div class="item">
-  
-        </div>
-        <div class="item">
-  
-          </div>
-  
-  
-        <div class="total">
-          <h3>Subtotal:</h3>
-          <h3 class="total-dollar-amt">$xx.xx</h3>
-        </div>
-        <button type="submit" class="submit-btn">Purchase</button>
+      <div class="item">
+
       </div>
-  
-    </form>
-  </div>
+      <div class="item">
+
+      </div>
+
+
+      <div class="total">
+        <h3>Subtotal:</h3>
+        <h3 class="total-dollar-amt">$xx.xx</h3>
+      </div>
+      <button type="submit" class="submit-btn">Purchase</button>
+    </div>
+
+  </form>
+</div>
