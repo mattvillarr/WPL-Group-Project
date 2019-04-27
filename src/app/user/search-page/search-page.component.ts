@@ -14,18 +14,15 @@ export class SearchPageComponent implements OnInit {
   items = [];
 
   ngOnInit() {
-    this.http.post("http://localhost:2345/products/search", " ")
-    .subscribe(response => {
-      console.log("Initialized search");
-      console.log(response);
-    });
+   
   }
 
   onSearch(form: NgForm) {
     if(form.invalid) {
       return;
     }
-    this.http.post("http://localhost:2345/products/search", form.value.search)
+    let sTerm = {'query': form.value.search};
+    this.http.post("http://localhost:2345/products/search", sTerm)
     .subscribe(response => {
       console.log("Results for " + form.value.search);
     });
