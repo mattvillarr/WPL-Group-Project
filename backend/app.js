@@ -1,11 +1,13 @@
 /* This is the Express file aka the E in MEAN*/
 const express = require('express');
 const bodyParser = require('body-parser');
-
+const cors = require('cors')
 const product = require('./routes/product.route'); 
 const order = require('./routes/order.route');
 const user = require('./routes/user.route');
 const app = express();
+
+app.use(cors());
 
 let port = 2345;
 
