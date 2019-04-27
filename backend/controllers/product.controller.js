@@ -50,7 +50,7 @@ exports.product_create = function (req, res, next) {
 
 exports.product_details = function (req, res, next) {
     const id = req.params.id;
-    Product.findById(id).select('name price _id').exec().then(doc => {
+    Product.findById(id).select('name price _id rating').exec().then(doc => {
         console.log(doc);
         if (doc){
             res.status(200).json(doc);
@@ -131,4 +131,53 @@ exports.product_search = function (req, res, next){
             error: err
         });
     })
+};
+
+
+exports.rating_update = function (req, res, next){
+
+    const id = req.params.id;
+    let updateOps = {};
+    Product.findById(id).select('rating').exec().then(doc => {
+        console.log(doc);
+        if (doc){
+            let rating = 0;
+            if(doc.rating == 0)
+            {
+                rating  = req.body.rating;
+            }
+            else
+            {
+                rating  = (req.body.rating + doc.rating)/2
+            }
+
+            updateOps['rating'] = rating;
+            Product.updateOne({_id : id}, {$set : updateOps}).exec().then(result =>{
+                res.status(200).json({
+                    message : "Product updated",
+                    request :{
+                        type : 'GET',
+                        url: "http://localhost:2345/products/" + id
+                    }
+                });
+            }).catch(err => {
+                console.log(err);
+                res.status(500).json({
+                    error: err
+                });
+            });
+
+            console.log(updateOps['rating']);
+
+            //res.status(200).json({ message : rating});
+        }else {
+            res.status(404).json({ message : "No valid entry found for the given ID."});
+        }
+
+    })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({error:err});
+        });
+
 };

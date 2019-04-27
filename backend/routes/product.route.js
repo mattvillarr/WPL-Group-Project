@@ -13,4 +13,5 @@ router.patch('/:id/update', product_controller.product_update);
 router.delete('/:id/delete', product_controller.product_delete);
 router.post('/find', product_controller.product_find);
 router.post('/search', product_controller.product_search);
+router.patch('/:id/set_rating', product_controller.rating_update);
 module.exports = router;
