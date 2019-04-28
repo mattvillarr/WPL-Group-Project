@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfilePageComponent },
   { path: 'search', component: SearchPageComponent },
   { path: 'checkout', component: CheckoutPageComponent },
-  { path: 'item', component: ItemPageComponent },
+  { path: 'item/:id', component: ItemPageComponent },
   { path: 'cart', component: ShoppingCartComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full'}
 ];

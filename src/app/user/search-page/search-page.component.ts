@@ -11,7 +11,7 @@ export class SearchPageComponent implements OnInit {
 
   constructor(private http: HttpClient) { }
 
-  items = [];
+  items: any;
 
   ngOnInit() {
    
@@ -24,9 +24,11 @@ export class SearchPageComponent implements OnInit {
     let sTerm = {'query': form.value.search};
     this.http.post("http://localhost:2345/products/search", sTerm)
     .subscribe(response => {
-      console.log("Results for " + form.value.search);
+      this.items = response;
+      console.log(response);
+      console.log("Results for " + sTerm);
     });
-    form.resetForm();
+    //form.resetForm();
   }
 
 }
