@@ -13,8 +13,7 @@ export class SearchPageComponent implements OnInit {
 
   items: any;
 
-  ngOnInit() {
-   
+  ngOnInit() { 
   }
 
   onSearch(form: NgForm) {

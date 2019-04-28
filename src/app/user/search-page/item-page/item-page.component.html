@@ -5,27 +5,27 @@
 
   <div class="body-content">
 
-    <form class="search-form" novalidate>
-      <input type="text" name="search-name" class="form-control" id="search" placeholder=" Search" required>
-      <button type="submit" style="visibility: hidden">hidden submit</button>
-    </form>
+    <div class="go-back">
+      <button class="back-btn" routerLink="/search" routerLinkActive="active">Back</button>
+    </div>
 
     <div class="item-picture">
-      <img>
+      <img src="{{item.image}}" alt="">
     </div>
 
     <div class="item-desc">
       <div class="desc">
-        <h2>Item Title</h2>
-        <h2>$xx.xx</h2>
+        <h2>{{item.name}}</h2>
+        <h2>${{item.price}}</h2>
         <p>Item description asdfjads alksjfdh adf halksjdfa hasdfkl alsdjfk alkf </p>
         <form class="add-to-cart" action="">
           <select class="quantity">
             <option class="qty-default" selected>Qty:</option>
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="mercedes">Mercedes</option>
-            <option value="audi">Audi</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
           </select>
           <button type="submit" class="submit-btn">Add To Cart</button>
         </form>

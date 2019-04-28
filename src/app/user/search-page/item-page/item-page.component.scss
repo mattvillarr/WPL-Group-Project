@@ -31,10 +31,10 @@
         grid-template-rows: 12vh auto;
         grid-template-columns: repeat(2, 1fr);
 
-        .search-form {
+        .go-back {
             grid-row: 1 / span 1;
             grid-column: 2 / span 1;
-            justify-self: end;
+            
         }
 
         .item-picture {
@@ -47,7 +47,7 @@
         .item-desc {
             grid-row: 2 / span 1;
             grid-column: 2 / span 1;
-            margin: 0% 35% 5vh 10%;
+            margin: 0% 35% 2vh 10%;
             border: 1px solid #E893B6;
             background: white;
         }
@@ -81,10 +81,33 @@
 }
 .submit-btn {
     margin-top: 10%;
+    margin-bottom: 1vh;
     background-color: #CDEDEF;
     width: 90%;
     height: 5vh;
     border: none;
     text-align: center;
     text-decoration: none;
+    transition-duration: 0.4s;
 }
+.submit-btn:hover {
+    background-color: white;
+    border: 2px solid #CDEDEF;
+    color: black;
+}
+.back-btn {
+    margin-left: 35%;
+    background-color: #E893B6;
+    color: white;
+    width: 30%;
+    height: 5vh;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    transition-duration: 0.4s;
+}
+.back-btn:hover {
+    background-color: white;
+    border: 2px solid #E893B6;
+    color: black;
+  }
