@@ -50,7 +50,7 @@ exports.product_create = function (req, res, next) {
 
 exports.product_details = function (req, res, next) {
     const id = req.params.id;
-    Product.findById(id).select('name price _id rating').exec().then(doc => {
+    Product.findById(id).select('_id name price category image description rating').exec().then(doc => {
         console.log(doc);
         if (doc){
             res.status(200).json(doc);
