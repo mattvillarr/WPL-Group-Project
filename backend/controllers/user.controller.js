@@ -22,6 +22,7 @@ exports.user_create = function (req, res, next){
                     const user = new User({
                         _id : new mongoose.Types.ObjectId(),
                         username : req.body.username,
+                        user_type: req.body.user_type,
                         email : req.body.email,
                         password : hash
                     });
