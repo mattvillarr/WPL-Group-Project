@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { HttpClient, HttpParams } from "@angular/common/http";
+import { ActivatedRoute, Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
+import { HttpClient } from "@angular/common/http";
+
+import { inCart } from '../../item-in-cart.model';
 
 @Component({
   selector: 'app-item-page',
@@ -11,8 +14,11 @@ export class ItemPageComponent implements OnInit {
 
   idParam = String;
   item: any;
+  amount = [1, 2, 3, 4, 5];
 
-  constructor(private http: HttpClient, private route: ActivatedRoute) { 
+  itemInCart: inCart[] = [];
+
+  constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) { 
     this.idParam = this.route.snapshot.params.id;
     console.log(this.idParam);
   }
@@ -23,11 +29,24 @@ export class ItemPageComponent implements OnInit {
     this.http.get(itemId)
       .subscribe(response => {
         this.item = response;
-        console.log(response);
-        console.log("Results for " + this.idParam);
       });
-      
-      
+  }
+
+  onAdd(form: NgForm) {
+    if(form.invalid) {
+      return;
+    }
+    //let sTerm = {'query': form.value.quantity};
+    //let qty = form.value.quantity;
+    //console.log(qty);
+
+    const cart: inCart = {
+      id: String(this.idParam),
+      quantity: form.value.quantity
+    }
+    this.itemInCart.push(cart);
+    console.log(this.itemInCart);
+    this.router.navigate(['/search']);
   }
 
 }

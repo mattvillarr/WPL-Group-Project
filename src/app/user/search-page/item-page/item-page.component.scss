@@ -52,12 +52,22 @@
             background: white;
         }
         .desc{
-            margin-left: 10%;
+            margin-left: 8%;
+            margin-right: 3%;
+            p {
+                font-size: 8pt; 
+            }
         }
         .add-to-cart {
-            margin-top: 25%;
+            margin-top: 10%;
         }
     }
+}
+
+img {
+    margin-left: 1%;
+    width: 98%;
+    height: 98%;
 }
 
 #search {

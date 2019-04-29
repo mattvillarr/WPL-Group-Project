@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { HttpClient } from "@angular/common/http";
 import { Router } from '@angular/router';
 
-import { Cart } from '../cart.model';
+import { inCart } from '../item-in-cart.model';
 
 @Component({
   selector: 'app-checkout-page',

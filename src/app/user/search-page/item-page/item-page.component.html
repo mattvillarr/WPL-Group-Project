@@ -17,15 +17,11 @@
       <div class="desc">
         <h2>{{item.name}}</h2>
         <h2>${{item.price}}</h2>
-        <p>Item description asdfjads alksjfdh adf halksjdfa hasdfkl alsdjfk alkf </p>
-        <form class="add-to-cart" action="">
-          <select class="quantity">
+        <p>{{item.description}}</p>
+        <form class="add-to-cart" (submit)="onAdd(addToCart)" #addToCart="ngForm" novalidate>
+          <select class="quantity" name="quantity" ngModel #quantity="ngModel">
             <option class="qty-default" selected>Qty:</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+            <option *ngFor="let a of amount" [ngValue]="a">{{a}}</option>   
           </select>
           <button type="submit" class="submit-btn">Add To Cart</button>
         </form>
