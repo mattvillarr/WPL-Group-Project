@@ -16,16 +16,13 @@
         <p>{{item.name}}: ${{item.price}}</p>
       </div>
       <div class="qty-container">
-        <label for="qty">Qty: </label>
-        <select name="qty" id="qty">
-          <option>0</option>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
+        <label for="qty">Qty: {{item.quantity}}</label>
+        <select name="qty" id="qty" (change)="onEditQty([item.id], $event.target.value)">
+          <option *ngFor="let a of amount" [ngValue]="a">{{a}}</option>
         </select>
       </div>
       <div class="remove">
-          <button class="remove-btn">Remove</button>
+          <button class="remove-btn" (click)="onRemoveItem([item.id])">Remove</button>
       </div>
     </div>
   </div>

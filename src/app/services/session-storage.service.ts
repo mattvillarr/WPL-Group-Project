@@ -22,12 +22,15 @@ export class SessionStorageService {
     console.log(localStorage);
   }
 
-  removeFromCart(item: inCart, id) {
+  removeFromCart(id) {
     localStorage.removeItem(id);
   }
 
-  updateQty(item: inCart, id){
-    localStorage.setItem(id, JSON.stringify(item));
+  updateQty(id, qty){
+    let val = JSON.parse(localStorage.getItem(id));
+    val['quantity'] = qty;
+    console.log(val);
+    localStorage.setItem(id, JSON.stringify(val));
   }
 
   clearCart() {
@@ -39,18 +42,17 @@ export class SessionStorageService {
   }
 
   getAllFromCart() {
-    //let allInCart: inCart[] = [];
     let allInCart = [];
     for ( let i = 0, len = localStorage.length; i < len; i++ ) {
       let key = localStorage.key(i);
       if(key != USER_CREDENTIAL && key != UID) {
         let val = JSON.parse(localStorage.getItem(key));
-        console.log("val", val);
+        //console.log("val", val);
         allInCart.push(val);
       }
     }
     
-    console.log(allInCart[0]['id']);
+    console.log(allInCart);
     return allInCart; 
   }
 
