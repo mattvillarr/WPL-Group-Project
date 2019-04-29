@@ -44,7 +44,10 @@ export class ItemPageComponent implements OnInit {
 
     const cart: inCart = {
       id: String(this.idParam),
-      quantity: form.value.quantity
+      quantity: form.value.quantity,
+      image: this.item.image,
+      price: this.item.price,
+      name: this.item.name
     }
     this.sessionStorageService.addToCart(cart);
     this.itemInCart.push(cart);

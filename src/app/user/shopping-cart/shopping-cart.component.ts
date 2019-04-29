@@ -12,13 +12,14 @@ import { SessionStorageService } from '../../services/session-storage.service';
 })
 export class ShoppingCartComponent implements OnInit {
 
-  allItems = []
+  itemsFromSession = [];
+  subtotal = 0;
 
   constructor(private http: HttpClient, private sessionStorageService: SessionStorageService) { }
 
   ngOnInit() {
-    let allItems = this.sessionStorageService.getAllFromCart();
-    console.log("all items = ", allItems);
-
+    this.itemsFromSession = this.sessionStorageService.getAllFromCart();
+    console.log("all items = ", this.itemsFromSession[0]['image']);
+    this.subtotal = this.sessionStorageService.calculateSubtotal();
   }
 }

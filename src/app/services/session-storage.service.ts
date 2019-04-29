@@ -53,4 +53,16 @@ export class SessionStorageService {
     console.log(allInCart[0]['id']);
     return allInCart; 
   }
+
+  calculateSubtotal() {
+    let items = this.getAllFromCart();
+    let subtotal = 0;
+    for(let i of items) {
+      let price = Number(i['price'])
+      console.log(i['quantity']);
+      subtotal += (price * Number(i['quantity']));
+    }
+    console.log(subtotal);
+    return subtotal;
+  }
 }

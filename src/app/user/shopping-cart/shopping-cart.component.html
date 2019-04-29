@@ -8,12 +8,12 @@
       <h3>Shopping Cart</h3>
     </div>
 
-    <div class="item">
+    <div class="item" *ngFor="let item of itemsFromSession">
       <div class="pic">
-        <img>
+        <img src="{{item.image}}">
       </div>
       <div class="desc">
-        <p>akjlsfdhalkjfd</p>
+        <p>{{item.name}}: ${{item.price}}</p>
       </div>
       <div class="qty-container">
         <label for="qty">Qty: </label>
@@ -25,56 +25,14 @@
         </select>
       </div>
       <div class="remove">
-        <button class="remove-btn">Remove</button>
+          <button class="remove-btn">Remove</button>
       </div>
-    </div>
-
-    <div class="item">
-        <div class="pic">
-            <img>
-          </div>
-          <div class="desc">
-            <p>akjlsfdhalkjfd</p>
-          </div>
-          <div class="qty-container">
-            <label for="qty">Qty: </label>
-            <select name="qty" id="qty">
-              <option>0</option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-            </select>
-          </div>
-          <div class="remove">
-            <button class="remove-btn">Remove</button>
-          </div>
-    </div>
-
-    <div class="item">
-        <div class="pic">
-            <img>
-          </div>
-          <div class="desc">
-            <p>akjlsfdhalkjfd</p>
-          </div>
-          <div class="qty-container">
-            <label for="qty">Qty: </label>
-            <select name="qty" id="qty">
-              <option>0</option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-            </select>
-          </div>
-          <div class="remove">
-            <button class="remove-btn">Remove</button>
-          </div>
     </div>
   </div>
 
   <div class="summary">
     <h3 class="subtotal">Subtotal:</h3>
-    <h3 class="total-dollar-amt">$xx.xx</h3>
+    <h3 class="total-dollar-amt">${{subtotal}}</h3>
     <button class="submit-btn" type="button" routerLink="/checkout" routerLinkActive="active"> Proceed to
       Checkout</button>
   </div>
