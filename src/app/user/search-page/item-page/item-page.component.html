@@ -19,8 +19,8 @@
         <h2>${{item.price}}</h2>
         <p>{{item.description}}</p>
         <form class="add-to-cart" (submit)="onAdd(addToCart)" #addToCart="ngForm" novalidate>
+          <label for="quantity">Qty:</label>
           <select class="quantity" name="quantity" ngModel #quantity="ngModel">
-            <option class="qty-default" selected>Qty:</option>
             <option *ngFor="let a of amount" [ngValue]="a">{{a}}</option>   
           </select>
           <button type="submit" class="submit-btn">Add To Cart</button>

@@ -65,4 +65,8 @@ export class SessionStorageService {
     console.log(subtotal);
     return subtotal;
   }
+
+  getUserId() {
+    return JSON.parse(localStorage.getItem(UID));
+  }
 }

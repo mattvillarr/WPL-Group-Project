@@ -19,7 +19,6 @@ export class ShoppingCartComponent implements OnInit {
 
   ngOnInit() {
     this.itemsFromSession = this.sessionStorageService.getAllFromCart();
-    console.log("all items = ", this.itemsFromSession[0]['image']);
     this.subtotal = this.sessionStorageService.calculateSubtotal();
   }
 }

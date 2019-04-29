@@ -4,6 +4,7 @@ import { HttpClient } from "@angular/common/http";
 import { Router } from '@angular/router';
 
 import { inCart } from '../item-in-cart.model';
+import { SessionStorageService } from '../../services/session-storage.service';
 
 @Component({
   selector: 'app-checkout-page',
@@ -12,9 +13,15 @@ import { inCart } from '../item-in-cart.model';
 })
 export class CheckoutPageComponent implements OnInit {
 
-  constructor(private http: HttpClient,  private router: Router) { }
+  itemsFromSession = [];
+  subtotal = 0;
+
+  constructor(private http: HttpClient,  private router: Router, 
+    private sessionStorageService: SessionStorageService) { }
 
   ngOnInit() {
+    this.itemsFromSession = this.sessionStorageService.getAllFromCart();
+    this.subtotal = this.sessionStorageService.calculateSubtotal();
   }
 
   onCheckout(form: NgForm) {
@@ -32,12 +39,26 @@ export class CheckoutPageComponent implements OnInit {
       zip: form.value.state,
       tel: form.value.tel
     };
-    this.http.post("http://localhost:2345/orders/create", userInfo)
-    .subscribe(response => {
-      console.log("order has been posted!");
-      console.log(response);
-      this.router.navigate(['/ ']);
-    });
-  }
 
+    let itemIds = [];
+    for(let item of this.itemsFromSession) {
+      let uid = this.sessionStorageService.getUserId();
+      let order = { 
+        quantity: item['quantity'],
+        user: uid,
+        product: item['id']
+      }
+      itemIds.push(order);
+    }
+
+    for(let id of itemIds) {
+
+      this.http.post("http://localhost:2345/orders/create", id)
+      .subscribe(response => {
+        console.log("order has been posted!");
+        console.log(response);
+      });
+    }
+    this.router.navigate(['/']);
+  }
 }

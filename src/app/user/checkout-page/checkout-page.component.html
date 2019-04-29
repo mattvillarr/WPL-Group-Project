@@ -20,21 +20,22 @@
     </div>
 
     <div class="summary">
-
-      <div class="item">
-
-      </div>
-      <div class="item">
-
-      </div>
-      <div class="item">
-
+      <div class="item" *ngFor="let item of itemsFromSession">
+        <div class="pic">
+          <img src="{{item.image}}">
+        </div>
+        <div class="desc">
+          <p>{{item.name}}: ${{item.price}}</p>
+        </div>
+        <div class="qty-container">
+          <p>Qty: {{item.quantity}}<p>
+        </div>
       </div>
 
 
       <div class="total">
         <h3>Subtotal:</h3>
-        <h3 class="total-dollar-amt">$xx.xx</h3>
+        <h3 class="total-dollar-amt">${{subtotal}}</h3>
       </div>
       <button type="submit" class="submit-btn">Purchase</button>
     </div>
