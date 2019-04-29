@@ -2,7 +2,10 @@
 <div class="wrapper">
   <app-header class="navbar"></app-header>
   <div class="sidebar">
-    <a routerLink="/cart" routerLinkActive="active">search criteria</a>
+    <h4>Search Criteria</h4>
+    <ul>
+      <li *ngFor="let c of categories"><a (click)="onFilter([c])">{{c}}</a></li>
+    </ul>
   </div>
 
   <div class="body-content">

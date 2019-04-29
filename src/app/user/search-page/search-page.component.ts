@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { HttpClient } from "@angular/common/http";
 
+import { SessionStorageService } from '../../services/session-storage.service';
+
 @Component({
   selector: 'app-search-page',
   templateUrl: './search-page.component.html',
@@ -9,9 +11,11 @@ import { HttpClient } from "@angular/common/http";
 })
 export class SearchPageComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private sessionStorageService: SessionStorageService) { }
 
   items: any;
+  categories = ['Clothing', 'Footwear', 'Jewelry ', 'Bags, Wallets & Belts', 'Beauty and Personal Care'];
+  resultsPerPage = 8;
 
   ngOnInit() { 
   }
@@ -27,7 +31,21 @@ export class SearchPageComponent implements OnInit {
       console.log(response);
       console.log("Results for " + sTerm);
     });
-    //form.resetForm();
+    form.resetForm();
   }
 
+  onFilter(category: String) {
+    console.log(category);
+    if (category == 'Jewelry') {
+      category = "Jewellery " // there is a typo in db
+    }
+    let filtered = [];
+    
+    for(let i of this.items) {
+      if(i['category'] == category) {
+        filtered.push(i);
+      }
+    } 
+    this.items = filtered;
+  }
 }
