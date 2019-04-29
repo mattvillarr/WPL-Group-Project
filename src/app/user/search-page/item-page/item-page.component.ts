@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { HttpClient } from "@angular/common/http";
 
 import { inCart } from '../../item-in-cart.model';
+import { SessionStorageService } from '../../../services/session-storage.service';
 
 @Component({
   selector: 'app-item-page',
@@ -18,7 +19,8 @@ export class ItemPageComponent implements OnInit {
 
   itemInCart: inCart[] = [];
 
-  constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) { 
+  constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router, 
+    private sessionStorageService: SessionStorageService) { 
     this.idParam = this.route.snapshot.params.id;
     console.log(this.idParam);
   }
@@ -44,6 +46,7 @@ export class ItemPageComponent implements OnInit {
       id: String(this.idParam),
       quantity: form.value.quantity
     }
+    this.sessionStorageService.addToCart(cart);
     this.itemInCart.push(cart);
     console.log(this.itemInCart);
     this.router.navigate(['/search']);

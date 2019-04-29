@@ -1,37 +1,56 @@
 import { Inject, Injectable } from '@angular/core';
-import { LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
+
+import { inCart } from '../user/item-in-cart.model';
+
+interface userData {
+  uid: String,
+  userType: String,
+  cart: inCart[]
+}
 
 const USER_CREDENTIAL = 'user_type';
-const CART = 'user_cart';
+const UID = 'uid';
 
-
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({providedIn: 'root'})
 export class SessionStorageService {
-  user = '';
-  cart = []
+  
+  constructor(){ }
 
-  constructor(@Inject(LOCAL_STORAGE) private storage: StorageService){ }
-
-  public storeItemOnLocalStorage(): void {
-          
-    // get array of tasks from local storage
-    const currentCart = this.storage.get(CART) || [];
-    // push new task to array
-    currentCart.push({
-        title: '',
-        isChecked: false 
-    });
-    // insert updated array to local storage
-    this.storage.set(CART, currentCart);
-    console.log(this.storage.get(CART) || 'Local storage is empty');
+  addToCart(item: inCart) {
+    let id = String(item['id']);
+    localStorage.setItem(id, JSON.stringify(item));
+    console.log(localStorage);
   }
 
-  public storeUserCredentialOnLocal(user: string): void {
-    const currentUser = user;
+  removeFromCart(item: inCart, id) {
+    localStorage.removeItem(id);
+  }
 
-    this.storage.set(USER_CREDENTIAL, currentUser);
-    console.log(this.storage.get(USER_CREDENTIAL) || 'No user credential');
+  updateQty(item: inCart, id){
+    localStorage.setItem(id, JSON.stringify(item));
+  }
+
+  clearCart() {
+    let userType = localStorage.get(USER_CREDENTIAL);
+    let uid = localStorage.get(UID)
+    localStorage.clear();
+    localStorage.setItem(USER_CREDENTIAL, userType);
+    localStorage.setItem(UID, uid);
+  }
+
+  getAllFromCart() {
+    //let allInCart: inCart[] = [];
+    let allInCart = [];
+    for ( let i = 0, len = localStorage.length; i < len; i++ ) {
+      let key = localStorage.key(i);
+      if(key != USER_CREDENTIAL && key != UID) {
+        let val = JSON.parse(localStorage.getItem(key));
+        console.log("val", val);
+        allInCart.push(val);
+      }
+    }
+    
+    console.log(allInCart[0]['id']);
+    return allInCart; 
   }
 }

@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { HttpClient } from "@angular/common/http";
+
+import { inCart } from '../item-in-cart.model';
+import { SessionStorageService } from '../../services/session-storage.service';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -7,9 +12,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShoppingCartComponent implements OnInit {
 
-  constructor() { }
+  allItems = []
+
+  constructor(private http: HttpClient, private sessionStorageService: SessionStorageService) { }
 
   ngOnInit() {
-  }
+    let allItems = this.sessionStorageService.getAllFromCart();
+    console.log("all items = ", allItems);
 
+  }
 }
