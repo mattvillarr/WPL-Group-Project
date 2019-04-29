@@ -1,4 +1,4 @@
 export class inCart {
-    _id : String;
+    id : String;
     quantity: number;
 }
