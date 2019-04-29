@@ -71,4 +71,9 @@ export class SessionStorageService {
   getUserId() {
     return JSON.parse(localStorage.getItem(UID));
   }
+
+  getUserCred() {
+    //localStorage.setItem(USER_CREDENTIAL, 'admin');
+    return localStorage.getItem(USER_CREDENTIAL);
+  }
 }

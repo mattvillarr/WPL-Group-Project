@@ -7,6 +7,9 @@
         <p>Products</p>
       </a>
     </div>
+    <div class="new-item" *ngIf="credCheck == 'admin'">
+        <a routerLink="/new_item" routerLinkActive="active">Add New Item</a>
+    </div>
     <div class="user">
       <a routerLink="/profile" routerLinkActive="active">
         <img src="../../../assets/img/user.svg">

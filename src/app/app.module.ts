@@ -16,6 +16,7 @@ import { RegisterComponent } from './login/register/register.component';
 import { HeaderComponent } from './header/header.component';
 import { ShoppingCartComponent } from './user/shopping-cart/shopping-cart.component';
 import { ProfilePageComponent } from './user/profile-page/profile-page.component';
+import { NewItemComponent } from './admin/new-item/new-item.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ProfilePageComponent } from './user/profile-page/profile-page.component
     RegisterComponent,
     HeaderComponent,
     ShoppingCartComponent,
-    ProfilePageComponent
+    ProfilePageComponent,
+    NewItemComponent
   ],
   imports: [
     BrowserModule,

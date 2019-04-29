@@ -59,6 +59,7 @@ export class CheckoutPageComponent implements OnInit {
         console.log(response);
       });
     }
-    this.router.navigate(['/']);
+    this.sessionStorageService.clearCart();
+    this.router.navigate(['/search']);
   }
 }
