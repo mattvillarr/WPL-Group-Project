@@ -43,7 +43,7 @@ exports.order_create = function (req, res, next){
 };
 
 exports.order_find = function (req, res, next){
-    Order.find().select('product quantity _id').exec().then(docs => {
+    Order.find({"user": req.body.userId}).select('user product quantity _id').exec().then(docs => {
         res.status(200).json({
             count : docs.length,
             orders: docs.map(doc => {
