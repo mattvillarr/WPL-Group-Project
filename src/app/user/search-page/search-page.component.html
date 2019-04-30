@@ -19,8 +19,8 @@
       <div class="item" *ngFor="let i of items">
         <a [routerLink]="['/item/' + i._id]" routerLinkActive="active">
           <img src="{{i.image}}" alt="">
-          {{i.name}}
-          {{i.price}}
+          <p>{{i.name}}</p>
+          <p>{{i.price}}</p>
         </a>
       </div>
     </div>

@@ -2,12 +2,6 @@ import { Inject, Injectable } from '@angular/core';
 
 import { inCart } from '../user/item-in-cart.model';
 
-interface userData {
-  uid: String,
-  userType: String,
-  cart: inCart[]
-}
-
 const USER_CREDENTIAL = 'user_type';
 const UID = 'uid';
 

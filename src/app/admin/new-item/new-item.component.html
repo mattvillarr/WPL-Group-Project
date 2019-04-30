@@ -1,3 +1,33 @@
-<p>
-  new-item works!
-</p>
+<div class="bg"></div>
+<div class="wrapper">
+
+  <app-header class="navbar"></app-header>
+
+  <form class="body-content create-new-item" (submit)="onCreate(createNewItem)" #createNewItem="ngForm" novalidate
+    *ngIf="credCheck == 'admin'">
+
+    <div class="go-back">
+      <button class="back-btn" routerLink="/search" routerLinkActive="active">Back</button>
+    </div>
+    <!-- <form class="create-new-item" (submit)="onCreate(createNewItem)" #createNewItem="ngForm" novalidate> -->
+
+    <div class="item-picture">
+      <button type="button" class="submit-btn" (click)="pickFile.click()">Upload Image</button>
+      <input type="file" #pickFile>
+      <!-- <img src="{{item.image}}" alt=""> -->
+    </div>
+
+    <div class="item-desc">
+      <div class="desc">
+        <input type="text" name="name" placeholder=" Add name" ngModel #name="ngModel" required>
+        <input type="number" name="price" placeholder=" Add price" ngModel #price="ngModel" required>
+        <input type="text" name="desc" placeholder=" Add description" ngModel #desc="ngModel" required>
+
+        <button type="submit" class="submit-btn">Create Item</button>
+
+      </div>
+    </div>
+
+  </form>
+
+</div>

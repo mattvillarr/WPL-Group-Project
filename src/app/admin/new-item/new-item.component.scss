@@ -1,0 +1,127 @@
+.bg {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background: #CDEDEF;
+    clip-path: polygon(0 0, 78% 0, 100% 53%, 100% 100%, 0 100%);
+    z-index: -1;
+}
+
+.wrapper {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 12vh auto;
+    grid-template-columns: 10% auto;
+    grid-row-gap: 5vh;
+
+    .navbar {
+        grid-row: 1 / span 1;
+        grid-column: 1 / span 2;
+    }
+
+    .body-content {
+        grid-row: 2 / span 1;
+        grid-column: 2 / span 1;
+        margin-right: 5%;
+        margin-bottom: 5%;
+        margin-left: 10%;
+
+        display: grid;
+        grid-template-rows: 12vh auto;
+        grid-template-columns: repeat(2, 1fr);
+
+        .go-back {
+            grid-row: 1 / span 1;
+            grid-column: 2 / span 1;
+            
+        }
+
+        .item-picture {
+            grid-row: 2 / span 1;
+            grid-column: 1 / span 1;
+            margin: 0% 20% 0% 10%;
+            border: 1px solid #E893B6;
+            background: white;
+        }
+        .item-desc {
+            grid-row: 2 / span 1;
+            grid-column: 2 / span 1;
+            margin: 0% 35% 2vh 10%;
+            border: 1px solid #E893B6;
+            background: white;
+        }
+        .desc{
+            margin-left: 8%;
+            margin-right: 3%;
+            p {
+                font-size: 8pt; 
+            }
+        }
+        .add-to-cart {
+            margin-top: 10%;
+        }
+    }
+}
+
+img {
+    margin-left: 1%;
+    width: 98%;
+    height: 98%;
+}
+
+input[type="file"] {
+    visibility: hidden;
+}
+
+#search {
+    width: 60%;
+    height: 4vh;
+    border: 1px solid #E893B6;
+    border-radius: 10px;
+    font-size: 12pt;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.quantity {
+    width: 90%;
+    border: 1px solid #E893B6;
+    font-size: 12pt;
+
+    .qty-default {
+        display: none;
+    }
+    
+}
+.submit-btn {
+    margin-top: 10%;
+    margin-bottom: 1vh;
+    background-color: #CDEDEF;
+    width: 90%;
+    height: 5vh;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    transition-duration: 0.4s;
+}
+.submit-btn:hover {
+    background-color: white;
+    border: 2px solid #CDEDEF;
+    color: black;
+}
+.back-btn {
+    margin-left: 35%;
+    background-color: #E893B6;
+    color: white;
+    width: 30%;
+    height: 5vh;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    transition-duration: 0.4s;
+}
+.back-btn:hover {
+    background-color: white;
+    border: 2px solid #E893B6;
+    color: black;
+  }
