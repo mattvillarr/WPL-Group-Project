@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
+
+import { SessionStorageService } from '../../services/session-storage.service';
 
 @Component({
   selector: 'app-profile-page',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfilePageComponent implements OnInit {
 
-  constructor() { }
+  uid = '';
+  items: any;
+
+  constructor(private http: HttpClient, private sessionStorageService: SessionStorageService) { }
 
   ngOnInit() {
+    this.uid = localStorage.getItem('uid');
+    this.http.post("http://localhost:2345/orders/find", this.uid)
+    .subscribe(response => {
+      this.items = response;
+      console.log(response);
+    });
   }
 
 }
