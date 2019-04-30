@@ -11,30 +11,42 @@
 }
 
 .purchase-container {
-    grid-row: 2 / span 1;
+    //grid-row: 2 / span 1;
 
+    width: 100%;
     display: grid;
     grid-auto-rows: 15vh;
 
     h2 {
         margin-left: 10%;
     }
+
+    img
+    {
+        height: 20%;
+        width: 20%;
+    }
 }
 
 .order {
-    border: 1px solid #E893B6; 
+
     margin-left: 10%;
     width: 80%;
+
 
     display: grid;
     grid-auto-rows: 10vh;
     row-gap: 3vh;
 
     .order-item {
+        width : 100%;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
 
-        padding-left: 3%;
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 5%;
+        padding-bottom: 5%;
         align-items: center;
     }
 }
