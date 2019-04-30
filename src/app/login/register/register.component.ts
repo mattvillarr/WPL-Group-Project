@@ -25,18 +25,29 @@ export class RegisterComponent implements OnInit {
   get f() { return this.registerForm.controls; }
 
   onSubmit() {
+    //console.log("Inside onsubmit");
+    //console.log(this.registerForm.status);
+    //console.log(this.registerForm.valid);
+    //console.log(this.registerForm.invalid);
     this.submitted = true;
 
     if (this.registerForm.invalid) {
+
+      //console.log("inside if");
+
       return;
     }
 
-    const regData = { email: this.registerForm.value.email, password: this.registerForm.value.password, username: this.registerForm.value.username };
+    else {
+    //console.log(this.registerForm.status);
+    //console.log("efjenfjn");
+    const regData = {username: this.registerForm.value.userName, email: this.registerForm.value.email, password: this.registerForm.value.password};
     this.http
       .post("http://localhost:2345/users/signup", regData)
         .subscribe(response => {
           console.log("Successfully done");
           console.log(response);
-    });
+      });
+    }
   }
 }

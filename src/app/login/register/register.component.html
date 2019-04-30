@@ -23,11 +23,14 @@
 
     <div class="pw">
       <label for="password">Password</label>
-      <input type="password" placeholder="Enter Password" name="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" pattern = '((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]))'>
-      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-          <div *ngIf="f.password.errors.required">Password is required</div>
-          <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
-          <div *ngIf="f.password.pattern == null">Password must contain atleast one uppercase character, one lowercase character and a number</div>
+
+      <input type="password" placeholder="Enter Password" name="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+      <div *ngIf="submitted && f.password.errors">
+          <div *ngIf="f.password.errors.required" class="invalid-feedback">Password is required</div>
+          <div *ngIf="f.password.errors.minlength" class="invalid-feedback">Password must be at least 6 characters</div>
+          <div *ngIf="registerForm.get('password').hasError('passwordStrength')" class="invalid-feedback">
+            {{registerForm.get('password').errors['passwordStrength']}}
+        </div>
       </div>
     </div>
 
