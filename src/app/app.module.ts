@@ -18,6 +18,7 @@ import { ShoppingCartComponent } from './user/shopping-cart/shopping-cart.compon
 import { ProfilePageComponent } from './user/profile-page/profile-page.component';
 import { NewItemComponent } from './admin/new-item/new-item.component';
 
+import {ValidateService} from './services/validate.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +41,7 @@ import { NewItemComponent } from './admin/new-item/new-item.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ValidateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
