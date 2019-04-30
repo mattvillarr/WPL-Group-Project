@@ -3,8 +3,33 @@
 
   <app-header class="navbar"></app-header>
 
-  <div class="body-content">
+  <form class="body-content" (submit)="onUpdate(updateItem)" #updateItem="ngForm" novalidate
+    *ngIf="credCheck == 'admin'">
+    <div class="go-back">
+      <button class="back-btn" routerLink="/search" routerLinkActive="active">Back</button>
+    </div>
 
+    <div class="item-picture">
+      <img src="{{item.image}}" alt="">
+      <input type="file">
+    </div>
+
+    <div class="item-desc">
+      <div class="desc">
+        <input type="text" name="name" placeholder="{{item.name}}" ngModel #name="ngModel">
+        <input type="text" name="category" placeholder="{{item.category}}" ngModel #category="ngModel">
+        <input type="number" name="price" placeholder="{{item.price}}" ngModel #price="ngModel">
+        <textarea type="text" name="desc" placeholder="{{item.desc}}" ngModel #desc="ngModel"></textarea>
+
+        <div class="add-to-cart">
+          <button type="submit" class="submit-btn">Update Item</button>
+        </div>
+        <button type="button" class="back-btn" (click)="onDelete()">Delete</button>
+      </div>
+    </div>
+  </form>
+
+  <div class="body-content" *ngIf="credCheck != 'admin'">
     <div class="go-back">
       <button class="back-btn" routerLink="/search" routerLinkActive="active">Back</button>
     </div>
@@ -21,7 +46,7 @@
         <form class="add-to-cart" (submit)="onAdd(addToCart)" #addToCart="ngForm" novalidate>
           <label for="quantity">Qty:</label>
           <select class="quantity" name="quantity" ngModel #quantity="ngModel">
-            <option *ngFor="let a of amount" [ngValue]="a">{{a}}</option>   
+            <option *ngFor="let a of amount" [ngValue]="a">{{a}}</option>
           </select>
           <button type="submit" class="submit-btn">Add To Cart</button>
         </form>

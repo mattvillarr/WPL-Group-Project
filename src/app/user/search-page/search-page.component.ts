@@ -12,12 +12,11 @@ import { SessionStorageService } from '../../services/session-storage.service';
 export class SearchPageComponent implements OnInit {
 
   credCheck = '';
-
-  constructor(private http: HttpClient, private sessionStorageService: SessionStorageService) { }
-
   items: any;
   categories = ['Clothing', 'Footwear', 'Jewelry ', 'Bags, Wallets & Belts', 'Beauty and Personal Care'];
   resultsPerPage = 8;
+
+  constructor(private http: HttpClient, private sessionStorageService: SessionStorageService) { }
 
   ngOnInit() { 
     this.credCheck = this.sessionStorageService.getUserCred();

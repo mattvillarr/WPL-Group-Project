@@ -32,7 +32,7 @@ import { NewItemComponent } from './admin/new-item/new-item.component';
     HeaderComponent,
     ShoppingCartComponent,
     ProfilePageComponent,
-    NewItemComponent
+    NewItemComponent,
   ],
   imports: [
     BrowserModule,
