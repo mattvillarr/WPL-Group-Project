@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { appInitializerFactory } from '@angular/platform-browser/src/browser/server-transition';
 import { NgForm } from '@angular/forms';
 import {ValidateService} from '../services/validate.service';
+import { HttpClient } from "@angular/common/http";
+
+import { SessionStorageService } from '../services/session-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -14,9 +18,8 @@ export class LoginComponent implements OnInit {
   password:any;
 
 
-  constructor(private validateService : ValidateService) { 
-    // this.username = ''
-  }
+  constructor(private http: HttpClient, private validateService : ValidateService, private router: Router, 
+    private sessionStorageService: SessionStorageService) { }
 
   ngOnInit() {
   }
@@ -35,7 +38,24 @@ export class LoginComponent implements OnInit {
       console.log("please use a valid email");
       return false;
     }
+
+    let success = false;
+    this.http.post("http://localhost:2345/users/login", user)
+    .subscribe(response => {
+      console.log(response);
+      if(response['status'] == 200) {
+        success = true;
+      }
+    });
+    if(success) {
+      localStorage.setItem('user_type', 'user');
+      localStorage.setItem('uid', '10291if1uefquiwoefio');
+      this.router.navigate(['/search']);
+    }
+    else {
+      return;
+    }
+
     
   }
-
 }

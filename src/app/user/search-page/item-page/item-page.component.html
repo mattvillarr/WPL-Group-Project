@@ -42,6 +42,7 @@
       <div class="desc">
         <h2>{{item.name}}</h2>
         <h2>${{item.price}}</h2>
+        <h4>Rating: {{item.rating}}/5</h4>
         <p>{{item.description}}</p>
         <form class="add-to-cart" (submit)="onAdd(addToCart)" #addToCart="ngForm" novalidate>
           <label for="quantity">Qty:</label>
