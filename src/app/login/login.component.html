@@ -1,18 +1,18 @@
 <div class="wrapper">
 
-  <form class="container">
+  <form class="container" (submit) = onLogin(loginForm) #loginForm = "ngForm" >
       <h2 class="title">Login</h2>
     <div class="uname">
       <label for="username">Username</label>
-      <input type="text" placeholder="Enter username" name="username" [(ngModel)]="username">
+      <input type="text" placeholder="Enter username" name="username" ngModel #username="ngModel">
     </div>
 
     <div class="pw">
       <label for="password">Password</label>
-      <input type="password" placeholder="Enter Password" name="password">
+      <input type="password" placeholder="Enter Password" name="password" ngModel #password="ngModel">
     </div>
 
-    <button class="submit-btn" type="submit" click="func()">Sign in</button>
+    <button class="submit-btn" type="submit">Sign in</button>
 
     <p class="register">Don't have an account? <a routerLink="/register" routerLinkActive="active">Register</a>.</p>
   </form>
