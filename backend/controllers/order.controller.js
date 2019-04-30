@@ -3,6 +3,7 @@ const Product = require('../models/product.model');
 const mongoose = require('mongoose');
 
 exports.order_create = function (req, res, next){
+    console.log(req.body)
     Product.findById(req.body.productId).then(product => {
         if(!product){
             return res.status(404).json({
