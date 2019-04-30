@@ -27,4 +27,22 @@ export class NewItemComponent implements OnInit {
     console.log(this.credCheck);
   }
 
+  onCreate(form: NgForm) {
+    if(form.invalid) {
+      return;
+    }
+    let newItem = {
+      'name': form.value.name,
+      'price': form.value.price,
+      'category' : form.value.category,
+      'image' : form.value.image,
+      'description' : form.value.description,
+      'rating' : 0
+    }
+    this.http.post("http://localhost:2345/products/create", newItem)
+    .subscribe(response => {
+      console.log(response);
+    });
+    this.router.navigate(['/search']);
+  }
 }

@@ -19,8 +19,9 @@
     <div class="item-desc">
       <div class="desc">
         <input type="text" name="name" placeholder=" Add name" ngModel #name="ngModel" required>
+        <input type="text" name="category" placeholder=" Add category" ngModel #category="ngModel" required>
         <input type="number" name="price" placeholder=" Add price" ngModel #price="ngModel" required>
-        <input type="text" name="desc" placeholder=" Add description" ngModel #desc="ngModel" required>
+        <textarea type="text" name="desc" placeholder=" Add description" ngModel #desc="ngModel" required></textarea>
 
         <button type="submit" class="submit-btn">Create Item</button>
 
