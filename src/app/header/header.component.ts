@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { SessionStorageService } from '../services/session-storage.service';
 
@@ -11,7 +12,7 @@ export class HeaderComponent implements OnInit {
 
   credCheck = '';
 
-  constructor(private sessionStorageService: SessionStorageService) { }
+  constructor(private sessionStorageService: SessionStorageService, private router: Router) { }
 
   ngOnInit() {
     this.credCheck = this.sessionStorageService.getUserCred();
@@ -19,6 +20,7 @@ export class HeaderComponent implements OnInit {
   }
 
   logMeOut() {
-
+    localStorage.clear();
+    this.router.navigate(['/']);
   }
 }

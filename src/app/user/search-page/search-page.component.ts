@@ -18,6 +18,13 @@ export class SearchPageComponent implements OnInit {
   resultsPerPage = 8;
 
   ngOnInit() { 
+    let search = {'query': 'pants'};
+    this.http.post("http://localhost:2345/products/search", search)
+    .subscribe(response => {
+      this.items = response;
+      console.log(response);
+      console.log("Results for " + search);
+    });
   }
 
   onSearch(form: NgForm) {
