@@ -48,7 +48,10 @@ export class LoginComponent implements OnInit {
         console.log("inside if success");
         localStorage.setItem('user_type', 'user');
         localStorage.setItem('uid', response['userId']);
+<<<<<<< Updated upstream
         localStorage.setItem('user_type', response['user_type']);
+=======
+>>>>>>> Stashed changes
         console.log(response['userId']);
         this.router.navigate(['/search']);
       }

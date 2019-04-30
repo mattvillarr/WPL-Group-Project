@@ -69,7 +69,10 @@ exports.user_login = function (req, res, next){
                     message : "Authorization successful",
                     token : token,
                     userId: user[0]._id,
+<<<<<<< Updated upstream
                     user_type : user[0].user_type,
+=======
+>>>>>>> Stashed changes
                     status: 200
                 })
             }
