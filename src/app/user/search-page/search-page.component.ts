@@ -11,6 +11,8 @@ import { SessionStorageService } from '../../services/session-storage.service';
 })
 export class SearchPageComponent implements OnInit {
 
+  credCheck = '';
+
   constructor(private http: HttpClient, private sessionStorageService: SessionStorageService) { }
 
   items: any;
@@ -18,13 +20,24 @@ export class SearchPageComponent implements OnInit {
   resultsPerPage = 8;
 
   ngOnInit() { 
-    let search = {'query': 'pants'};
-    this.http.post("http://localhost:2345/products/search", search)
-    .subscribe(response => {
-      this.items = response;
-      console.log(response);
-      console.log("Results for " + search);
-    });
+    this.credCheck = this.sessionStorageService.getUserCred();
+
+    if(this.credCheck == 'admin') {
+      this.http.post("http://localhost:2345/products/find", '')
+      .subscribe(response => {
+        this.items = response;
+        console.log(response);
+      });
+    }
+    else {
+      let search = {'query': 'pants'};
+      this.http.post("http://localhost:2345/products/search", search)
+      .subscribe(response => {
+        this.items = response;
+        console.log(response);
+        console.log("Results for " + search);
+      });
+    }
   }
 
   onSearch(form: NgForm) {
