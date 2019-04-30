@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 
 import { SessionStorageService } from '../../services/session-storage.service';
+import { getRandomString } from 'selenium-webdriver/safari';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-profile-page',
@@ -35,4 +37,11 @@ export class ProfilePageComponent implements OnInit {
       })
     })
   }
+
+  rating(form:NgForm){
+    console.log("Inside the func");
+   console.log(form.value.rate);
+  }
+
 }
+

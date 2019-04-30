@@ -19,31 +19,31 @@
         </div>
         <div class="rate">
           <p>Rate Your Product</p>
-          <form class="rating">
+          <form class="rating" #ratingForm = "ngForm">
             <label>
-              <input type="radio" name="stars" value="1" />
+              <input type="radio" name="stars" value="1" ngModel #rate="ngModel"/>
               <span class="icon">★</span>
             </label>
             <label>
-              <input type="radio" name="stars" value="2" />
-              <span class="icon">★</span>
-              <span class="icon">★</span>
-            </label>
-            <label>
-              <input type="radio" name="stars" value="3" />
-              <span class="icon">★</span>
+              <input type="radio" name="stars" value="2" ngModel #rate="ngModel"/>
               <span class="icon">★</span>
               <span class="icon">★</span>
             </label>
             <label>
-              <input type="radio" name="stars" value="4" />
-              <span class="icon">★</span>
+              <input type="radio" name="stars" value="3" ngModel #rate="ngModel"/>
               <span class="icon">★</span>
               <span class="icon">★</span>
               <span class="icon">★</span>
             </label>
             <label>
-              <input type="radio" name="stars" value="5" />
+              <input type="radio" name="stars" value="4" ngModel #rate="ngModel"/>
+              <span class="icon">★</span>
+              <span class="icon">★</span>
+              <span class="icon">★</span>
+              <span class="icon">★</span>
+            </label>
+            <label>
+              <input type="radio" name="stars" value="5" ngModel #rate="ngModel"/>
               <span class="icon">★</span>
               <span class="icon">★</span>
               <span class="icon">★</span>
