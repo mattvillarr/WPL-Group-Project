@@ -48,6 +48,7 @@ export class LoginComponent implements OnInit {
         console.log("inside if success");
         localStorage.setItem('user_type', 'user');
         localStorage.setItem('uid', response['userId']);
+        localStorage.setItem('user_type', response['user_type']);
         console.log(response['userId']);
         this.router.navigate(['/search']);
       }
