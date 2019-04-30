@@ -4,7 +4,7 @@
       <h2 class="title">Login</h2>
     <div class="uname">
       <label for="username">Username</label>
-      <input type="text" placeholder="Enter username" name="username">
+      <input type="text" placeholder="Enter username" name="username" [(ngModel)]="username">
     </div>
 
     <div class="pw">
@@ -12,7 +12,7 @@
       <input type="password" placeholder="Enter Password" name="password">
     </div>
 
-    <button class="submit-btn" type="submit">Sign in</button>
+    <button class="submit-btn" type="submit" click="func()">Sign in</button>
 
     <p class="register">Don't have an account? <a routerLink="/register" routerLinkActive="active">Register</a>.</p>
   </form>

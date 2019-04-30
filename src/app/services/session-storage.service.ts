@@ -28,8 +28,8 @@ export class SessionStorageService {
   }
 
   clearCart() {
-    let userType = localStorage.get(USER_CREDENTIAL);
-    let uid = localStorage.get(UID)
+    let userType = localStorage.getItem(USER_CREDENTIAL);
+    let uid = localStorage.getItem(UID)
     localStorage.clear();
     localStorage.setItem(USER_CREDENTIAL, userType);
     localStorage.setItem(UID, uid);
@@ -63,7 +63,7 @@ export class SessionStorageService {
   }
 
   getUserId() {
-    return JSON.parse(localStorage.getItem(UID));
+    return localStorage.getItem(UID);
   }
 
   getUserCred() {

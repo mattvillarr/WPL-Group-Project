@@ -25,9 +25,12 @@ export class CheckoutPageComponent implements OnInit {
   }
 
   onCheckout(form: NgForm) {
+    console.log("1")
     if(form.invalid) {
+      console.log("2")
       return;
     }
+    console.log("3")
 
     let userInfo = {
       email: form.value.email,
@@ -42,16 +45,26 @@ export class CheckoutPageComponent implements OnInit {
 
     let itemIds = [];
     for(let item of this.itemsFromSession) {
+
+      console.log("1111")
+    console.log(item)
       let uid = this.sessionStorageService.getUserId();
+      console.log(uid)
       let order = { 
         quantity: item['quantity'],
         user: uid,
         product: item['id']
       }
+
+    console.log("5")
+    
+    console.log(order)
       itemIds.push(order);
     }
+    console.log("4")
 
     for(let id of itemIds) {
+      console.log(id)
 
       this.http.post("http://localhost:2345/orders/create", id)
       .subscribe(response => {
