@@ -27,14 +27,14 @@ export class LoginComponent implements OnInit {
   onLogin(form : NgForm) {
     console.log(form.value.username)
     const user = {
-      username : form.value.username,
+      email : form.value.username,
       password : form.value.password
     }
     if(!this.validateService.validateLogin(user)){
       console.log("Please fill in all fields");
       return false;
     }
-    if(!this.validateService.validateEmail(user.username)){
+    if(!this.validateService.validateEmail(user.email)){
       console.log("please use a valid email");
       return false;
     }
@@ -43,18 +43,30 @@ export class LoginComponent implements OnInit {
     this.http.post("http://localhost:2345/users/login", user)
     .subscribe(response => {
       console.log(response);
+      
       if(response['status'] == 200) {
-        success = true;
+        console.log("inside if success");
+        localStorage.setItem('user_type', 'user');
+        localStorage.setItem('uid', response['userId']);
+        console.log(response['userId']);
+        this.router.navigate(['/search']);
       }
+      else {
+        return;
+      }
+  
     });
-    if(success) {
-      localStorage.setItem('user_type', 'user');
-      localStorage.setItem('uid', '10291if1uefquiwoefio');
-      this.router.navigate(['/search']);
-    }
-    else {
-      return;
-    }
+
+    // console.log(success);
+    // if(success) {
+    //   console.log("inside if success");
+    //   localStorage.setItem('user_type', 'user');
+    //   localStorage.setItem('uid', '10291if1uefquiwoefio');
+    //   this.router.navigate(['/search']);
+    // }
+    // else {
+    //   return;
+    // }
 
     
   }

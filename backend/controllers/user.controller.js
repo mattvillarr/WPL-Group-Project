@@ -68,7 +68,8 @@ exports.user_login = function (req, res, next){
                 return res.status(200).json({
                     message : "Authorization successful",
                     token : token,
-                    userId: user[0]._id
+                    userId: user[0]._id,
+                    status: 200
                 })
             }
             res.status(401).json({
