@@ -2,8 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 
 import { SessionStorageService } from '../../services/session-storage.service';
+
 import { getRandomString } from 'selenium-webdriver/safari';
 import { NgForm } from '@angular/forms';
+
+
 
 @Component({
   selector: 'app-profile-page',
@@ -38,10 +41,19 @@ export class ProfilePageComponent implements OnInit {
     })
   }
 
-  rating(form:NgForm){
-    console.log("Inside the func");
-   console.log(form.value.rate);
-  }
+rating(form: NgForm, id){
+    console.log(id['_id']);
+    console.log(form.value.stars);
+    this.http.patch("http://localhost:2345/products/"+id['_id']+"/set_rating", {ratings: form.value.stars}).subscribe(response => {
+      this.items = response;
+      console.log(response);
+    });
+}
+
+
+
+
+
 
 }
 

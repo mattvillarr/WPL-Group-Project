@@ -140,8 +140,9 @@ exports.rating_update = function (req, res, next){
     let updateOps = {};
     Product.findById(id).select('rating').exec().then(doc => {
         //console.log(req.body.ratings);
-        //console.log(req.params.id);
+        console.log(req.params.id);
         if (doc){
+            console.log("inside if ")
             let rating = 0;
             if(req.body.ratings == null)
             {
@@ -161,10 +162,12 @@ exports.rating_update = function (req, res, next){
             }
             //console.log(req.body.ratings);
             //console.log(req.body);
-
+            console.log("11");
             updateOps['rating'] = rating;
             Product.updateOne({_id : id}, {$set : updateOps}).exec().then(result =>{
+                console.log("200 status")
                 res.status(200).json({
+
                     message : "Product updated",
                     request :{
                         type : 'GET',
