@@ -17,6 +17,7 @@ import { HeaderComponent } from './header/header.component';
 import { ShoppingCartComponent } from './user/shopping-cart/shopping-cart.component';
 import { ProfilePageComponent } from './user/profile-page/profile-page.component';
 import { NewItemComponent } from './admin/new-item/new-item.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 import {ValidateService} from './services/validate.service';
 @NgModule({
@@ -40,7 +41,8 @@ import {ValidateService} from './services/validate.service';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [ValidateService],
   bootstrap: [AppComponent]

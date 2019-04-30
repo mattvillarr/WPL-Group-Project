@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import {NgxPaginationModule} from 'ngx-pagination';
 import { SearchPageComponent } from './search-page.component';
 
 describe('SearchPageComponent', () => {

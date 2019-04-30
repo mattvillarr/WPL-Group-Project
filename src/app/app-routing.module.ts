@@ -11,6 +11,7 @@ import { RegisterComponent } from './login/register/register.component';
 import { ShoppingCartComponent } from './user/shopping-cart/shopping-cart.component';
 import { ProfilePageComponent } from './user/profile-page/profile-page.component';
 import { NewItemComponent } from './admin/new-item/new-item.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 const routes: Routes = [

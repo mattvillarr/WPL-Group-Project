@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { HttpClient } from "@angular/common/http";
 
+
 import { SessionStorageService } from '../../services/session-storage.service';
 
 @Component({
@@ -16,7 +17,9 @@ export class SearchPageComponent implements OnInit {
   categories = ['Clothing', 'Footwear', 'Jewelry ', 'Bags, Wallets & Belts', 'Beauty and Personal Care'];
   resultsPerPage = 8;
 
-  constructor(private http: HttpClient, private sessionStorageService: SessionStorageService) { }
+  constructor(private http: HttpClient, private sessionStorageService: SessionStorageService) {
+
+  }
 
   ngOnInit() { 
     this.credCheck = this.sessionStorageService.getUserCred();
@@ -29,7 +32,7 @@ export class SearchPageComponent implements OnInit {
       });
     }
     else {
-      let search = {'query': 'shoes'};
+      let search = {'query': 'shoes bags pants'};
       this.http.post("http://localhost:2345/products/search", search)
       .subscribe(response => {
         this.items = response;
@@ -67,4 +70,7 @@ export class SearchPageComponent implements OnInit {
     } 
     this.items = filtered;
   }
+
+
+
 }

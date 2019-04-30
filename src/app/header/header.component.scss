@@ -9,7 +9,17 @@
 
     .title {
         grid-column: 1 / span 1;
+
+        img {
+            width: 70px;
+            height: 70px;
+            position: relative;
+            top: -2px;
+        }
+
+
     }
+
     .products {
         grid-column: 2 / span 1;
     }
