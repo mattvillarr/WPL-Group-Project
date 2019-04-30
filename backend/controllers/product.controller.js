@@ -139,17 +139,28 @@ exports.rating_update = function (req, res, next){
     const id = req.params.id;
     let updateOps = {};
     Product.findById(id).select('rating').exec().then(doc => {
-        console.log(doc);
+        //console.log(req.body.ratings);
+        //console.log(req.params.id);
         if (doc){
             let rating = 0;
-            if(doc.rating == 0)
+            if(req.body.ratings == null)
             {
-                rating  = req.body.rating;
+
+                rating = doc.rating;
+
+
+            }
+            else if(doc.rating == 0)
+            {
+
+                rating  = Number(req.body.ratings);
             }
             else
             {
-                rating  = (req.body.rating + doc.rating)/2
+                rating  = (Number(req.body.ratings) + doc.rating)/2;
             }
+            //console.log(req.body.ratings);
+            //console.log(req.body);
 
             updateOps['rating'] = rating;
             Product.updateOne({_id : id}, {$set : updateOps}).exec().then(result =>{
