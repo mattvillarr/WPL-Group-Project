@@ -52,8 +52,8 @@ export class CheckoutPageComponent implements OnInit {
       console.log(uid)
       let order = { 
         quantity: item['quantity'],
-        user: uid,
-        product: item['id']
+        userId: uid,
+        productId: item['id']
       }
 
     console.log("5")

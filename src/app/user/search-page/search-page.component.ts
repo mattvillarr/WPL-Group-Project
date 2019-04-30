@@ -29,7 +29,7 @@ export class SearchPageComponent implements OnInit {
       });
     }
     else {
-      let search = {'query': 'pants'};
+      let search = {'query': 'shoes'};
       this.http.post("http://localhost:2345/products/search", search)
       .subscribe(response => {
         this.items = response;
