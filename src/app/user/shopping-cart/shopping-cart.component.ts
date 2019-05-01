@@ -27,6 +27,7 @@ export class ShoppingCartComponent implements OnInit {
   onRemoveItem(id){
     console.log(id);
     this.sessionStorageService.removeFromCart(id);
+    window.location.reload();
   }
 
   onEditQty(id, qty) {

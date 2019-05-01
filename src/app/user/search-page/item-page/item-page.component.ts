@@ -81,6 +81,7 @@ export class ItemPageComponent implements OnInit {
       console.log(response);
     });
     this.router.navigate(['/search']);
+
   }
 
 }

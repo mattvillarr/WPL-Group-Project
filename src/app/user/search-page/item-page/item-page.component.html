@@ -16,10 +16,22 @@
 
     <div class="item-desc">
       <div class="desc">
-        <input type="text" name="name" placeholder="{{item.name}}" ngModel #name="ngModel">
-        <input type="text" name="category" placeholder="{{item.category}}" ngModel #category="ngModel">
-        <input type="number" name="price" placeholder="{{item.price}}" ngModel #price="ngModel">
-        <textarea type="text" name="desc" placeholder="{{item.desc}}" ngModel #desc="ngModel"></textarea>
+        <div class="item">
+          <label for="name">Name</label>
+          <input type="text" name="name" placeholder="{{item.name}}" ngModel #name="ngModel">
+        </div>
+        <div class ="item">
+          <label for="category">Category</label>
+          <input type="text" name="category" placeholder="{{item.category}}" ngModel #category="ngModel">
+        </div>
+        <div class="item">
+          <label for="price">Price</label>
+          <input type="number" name="price" placeholder="{{item.price}}" ngModel #price="ngModel">
+        </div>
+        <div class="item">
+          <label for="desc">Description</label>
+          <textarea type="text" name="desc" placeholder="{{item.desc}}" ngModel #desc="ngModel"></textarea>
+        </div>
 
         <div class="add-to-cart">
           <button type="submit" class="submit-btn">Update Item</button>

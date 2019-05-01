@@ -16,7 +16,7 @@
     </form>
 
     <div class="item-results">
-      <div class="item" *ngFor="let i of items">
+      <div class="item" *ngFor="let i of items | paginate: { itemsPerPage: 8, currentPage: p }">
         <a [routerLink]="['/item/' + i._id]" routerLinkActive="active">
           <img src="{{i.image}}" alt="">
           <p>{{i.name}}</p>
@@ -24,6 +24,7 @@
         </a>
       </div>
     </div>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </div>
 
   <div class="body-content" *ngIf="credCheck != 'admin'">
